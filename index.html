@@ -1,3 +1,66 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #121212;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+        }
+        input {
+            padding: 10px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            background-color: #1e1e1e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Please Enter the Passkey</h1>
+        <input type="text" id="passkeyInput" placeholder="Enter passkey" />
+        <button onclick="checkPasskey()">Submit</button>
+    </div>
+    <script>
+        function checkPasskey() {
+            const passkey = document.getElementById('passkeyInput').value;
+            if (passkey === 'cheese') {
+                window.location.href = 'main.html'; // Replace with your main HTML file name
+            } else {
+                alert('Incorrect passkey. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>
+```
+
+### Step 2: Main Content HTML (main.html)
+
+You already provided the main content. Save it as `main.html` in the same directory as your authentication HTML file. Here it is for reference:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,14 +110,8 @@
 
     <script>
         function addLink() {
-            const currentLinks = localStorage.getItem('links') || ''
-            let linkExists
-            if (!currentLinks) {
-console.log("no current links")
-                linkExists = false
-} else {
-    linkExists = true
-}
+            const currentLinks = localStorage.getItem('links') || '';
+            let linkExists = !!currentLinks;
 
             let input = document.getElementById('linkInput').value;
             if (input && input.startsWith('http')) {
@@ -65,7 +122,7 @@ console.log("no current links")
                 btn.className = 'link-button';
                 btn.innerText = input;
                 container.appendChild(btn);
-                if (!linkExists) {localStorage.setItem('links', input)}
+                if (!linkExists) { localStorage.setItem('links', input); }
                 document.getElementById('linkInput').value = '';
             } else {
                 alert('Please enter a valid URL starting with https://');
@@ -74,3 +131,4 @@ console.log("no current links")
     </script>
 </body>
 </html>
+```
