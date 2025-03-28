@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charlie's Links</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+        .link-button {
+            background-color: #1e1e1e;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: transform 0.2s ease-in-out, background-color 0.2s;
+        }
+        .link-button:hover {
+            transform: scale(1.1);
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Charlie's Cool Links</h1>
+    <div class="link-container" id="linkContainer"></div>
+    <br>
+    <input type="text" id="linkInput" placeholder="Enter link (with https://)" style="padding:10px; width:250px;">
+    <button onclick="addLink()" style="padding: 10px 20px; margin-left: 10px; cursor: pointer;">Add Link</button>
+
+    <script>
+        function addLink() {
+            let input = document.getElementById('linkInput').value;
+            if (input && input.startsWith('http')) {
+                let container = document.getElementById('linkContainer');
+                let btn = document.createElement('a');
+                btn.href = input;
+                btn.target = "_blank";
+                btn.className = 'link-button';
+                btn.innerText = input;
+                container.appendChild(btn);
+                document.getElementById('linkInput').value = '';
+            } else {
+                alert('Please enter a valid URL starting with https://');
+            }
+        }
+    </script>
+</body>
+</html>
