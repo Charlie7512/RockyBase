@@ -47,6 +47,15 @@
 
     <script>
         function addLink() {
+            const currentLinks = localStorage.getItem('links') || ''
+            let linkExists
+            if (!currentLinks) {
+console.log("no current links")
+                linkExists = false
+} else {
+    linkExists = true
+}
+
             let input = document.getElementById('linkInput').value;
             if (input && input.startsWith('http')) {
                 let container = document.getElementById('linkContainer');
@@ -56,6 +65,7 @@
                 btn.className = 'link-button';
                 btn.innerText = input;
                 container.appendChild(btn);
+                if (!linkExists) {localStorage.setItem('links', input)}
                 document.getElementById('linkInput').value = '';
             } else {
                 alert('Please enter a valid URL starting with https://');
