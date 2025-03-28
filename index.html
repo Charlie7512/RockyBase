@@ -83,11 +83,26 @@
             
         let linkExists = currentLinks ? true : false;    
 
+        let linksArray
+
         if (linkExists) {
     
-    
-    
-}
+            linksArray = []            
+
+            const filteredArray1 = currentLinks.replace('[', '')
+
+            console.log(filteredArray1)
+
+            const filteredArray2 = filteredArray2.replace(']', '')
+
+            console.log(filteredArray2)
+
+            filteredArray2.split(',').forEach(element => {
+                console.log(element)
+
+                createLink(element)
+            });
+        }
 
         function addLink() {
             let input = document.getElementById('linkInput').value;
