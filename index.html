@@ -115,7 +115,11 @@
                 btn.innerText = input;
                 container.appendChild(btn);
                 if (!linkExists) { localStorage.setItem('links', `input`) 
+
                 linkExists = true
+}
+if (linkExists) {linksArray.push(input)
+    localStorage.setItem('links', linksArray)
 }
                 document.getElementById('linkInput').value = '';
             } else {
