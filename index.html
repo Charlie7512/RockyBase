@@ -57,6 +57,7 @@
     </div>
 
     <script>
+       <script>
         function checkPasskey() {
             const passkeyInput = document.getElementById('passkeyInput').value;
             if (passkeyInput === 'cheese') {
@@ -114,11 +115,11 @@
                 btn.className = 'link-button';
                 btn.innerText = input;
                 container.appendChild(btn);
-                if (!linkExists) { localStorage.setItem('links', `input`) 
+                if (!linkExists) { localStorage.setItem('links', document.getElementById('linkInput').value) 
 
                 linkExists = true
 }
-if (linkExists) {linksArray.push(input)
+if (linkExists) {linksArray.push(document.getElementById('linkInput').value)
     localStorage.setItem('links', linksArray)
 }
                 document.getElementById('linkInput').value = '';
@@ -126,6 +127,7 @@ if (linkExists) {linksArray.push(input)
                 alert('Please enter a valid URL starting with https://');
             }
         }
+    </script>
     </script>
 </body>
 </html>
