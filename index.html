@@ -67,10 +67,29 @@
             }
         }
 
-        function addLink() {
-            const currentLinks = localStorage.getItem('links') || ''
-            let linkExists = currentLinks ? true : false;
+        function createLink(input) {
+            
+                let container = document.getElementById('linkContainer');
+                let btn = document.createElement('a');
+                btn.href = input;
+                btn.target = "_blank";
+                btn.className = 'link-button';
+                btn.innerText = input;
+                container.appendChild(btn);
+    
+        }
+    
+        const currentLinks = localStorage.getItem('links') || false    
+            
+        let linkExists = currentLinks ? true : false;    
 
+        if (linkExists) {
+    
+    
+    
+}
+
+        function addLink() {
             let input = document.getElementById('linkInput').value;
             if (input && input.startsWith('http')) {
                 let container = document.getElementById('linkContainer');
@@ -80,7 +99,9 @@
                 btn.className = 'link-button';
                 btn.innerText = input;
                 container.appendChild(btn);
-                if (!linkExists) { localStorage.setItem('links', input) }
+                if (!linkExists) { localStorage.setItem('links', `input`) 
+                linkExists = true
+}
                 document.getElementById('linkInput').value = '';
             } else {
                 alert('Please enter a valid URL starting with https://');
